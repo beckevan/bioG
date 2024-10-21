@@ -26,11 +26,10 @@ class GameInitializer:
         self.heavy_forest_tile_3_path = heavy_forest_tile_3_path
         self.heavy_forest_tile_4_path = heavy_forest_tile_4_path
         self.init_assets()
-        self.init_game_vars(window_size[1])
+        self.init_game_vars(window_size)
         self.init_background(window_size)
 
     def init_assets(self):
-        # Load images using the provided paths
         self.cassowary_unscaled = pygame.image.load(self.cassowary_path)
         self.car_unscaled = pygame.image.load(self.car_path)
         self.heavy_forest_tile_1_unscaled = pygame.image.load(self.heavy_forest_tile_1_path)
@@ -38,22 +37,22 @@ class GameInitializer:
         self.heavy_forest_tile_3_unscaled = pygame.image.load(self.heavy_forest_tile_3_path)
         self.heavy_forest_tile_4_unscaled = pygame.image.load(self.heavy_forest_tile_4_path)
 
-    def init_game_vars(self, window_y):
-        # Initialize game variables
-        self.lane_lines = [((1000 // 2, 0), (1000 // 2, window_y))]  # Use fixed values here or pass window size as an argument
+    def init_game_vars(self, window_size):
+        self.lane_lines = [((window_size[0] // 2, 0), (window_size[0] // 2, window_size[1]))]
 
         for i in range(1, round(self.lane_amount / 2) + 1):
             self.lane_lines.append(
-                ((1000 // 2, 0), (1000 // 2 - (i * 200), window_y))
+                ((window_size[0] // 2, 0), (window_size[0] // 2 - (i * 200), window_size[1]))
             )
             self.lane_lines.append(
-                ((1000 // 2, 0), (1000 // 2 + (i * 200), window_y))
+                ((window_size[0] // 2, 0), (window_size[0] // 2 + (i * 200), window_size[1]))
             )
 
         self.lane_lines = sorted(self.lane_lines, key=lambda x: x[1][0])
 
     def init_background(self, window_size):
         self.tile_textures = [[],[],[],[]]
+        temp = self.tile_textures
         self.tile_amount = (window_size[0] // 128 + 1, window_size[1] // 128 + 1)
         for x in range(0, self.tile_amount[0]):
             for y in range(0, self.tile_amount[1]):
