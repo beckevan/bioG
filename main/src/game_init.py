@@ -4,14 +4,24 @@ class GameInitializer:
     def __init__(
             self, 
             car_path, 
-            cassowary_path, 
             heavy_forest_tile_1_path, 
             heavy_forest_tile_2_path, 
             heavy_forest_tile_3_path, 
-            heavy_forest_tile_4_path, 
+            heavy_forest_tile_4_path,
+            cassowary_running_1_path,
+            cassowary_running_2_path,
+            cassowary_running_3_path,
+            cassowary_running_4_path,
+            cassowary_running_5_path,
+            cassowary_running_6_path,
             window_size):
-        self.cassowary_unscaled = None
         self.car_unscaled = None
+        self.cassowary_running_1_unscaled = None
+        self.cassowary_running_2_unscaled = None
+        self.cassowary_running_3_unscaled = None
+        self.cassowary_running_4_unscaled = None
+        self.cassowary_running_5_unscaled = None
+        self.cassowary_running_6_unscaled = None
         self.heavy_forest_tile_1_unscaled = None
         self.heavy_forest_tile_2_unscaled = None
         self.heavy_forest_tile_3_unscaled = None
@@ -20,7 +30,12 @@ class GameInitializer:
         self.lane_amount = 4
         self.tiles = []
         self.car_path = car_path
-        self.cassowary_path = cassowary_path
+        self.cassowary_running_1_path = cassowary_running_1_path
+        self.cassowary_running_2_path = cassowary_running_2_path
+        self.cassowary_running_3_path = cassowary_running_3_path
+        self.cassowary_running_4_path = cassowary_running_4_path
+        self.cassowary_running_5_path = cassowary_running_5_path
+        self.cassowary_running_6_path = cassowary_running_6_path
         self.heavy_forest_tile_1_path = heavy_forest_tile_1_path
         self.heavy_forest_tile_2_path = heavy_forest_tile_2_path
         self.heavy_forest_tile_3_path = heavy_forest_tile_3_path
@@ -30,8 +45,13 @@ class GameInitializer:
         self.init_background(window_size)
 
     def init_assets(self):
-        self.cassowary_unscaled = pygame.image.load(self.cassowary_path)
         self.car_unscaled = pygame.image.load(self.car_path)
+        self.cassowary_running_1_unscaled = pygame.image.load(self.cassowary_running_1_path)
+        self.cassowary_running_2_unscaled = pygame.image.load(self.cassowary_running_2_path)
+        self.cassowary_running_3_unscaled = pygame.image.load(self.cassowary_running_3_path)
+        self.cassowary_running_4_unscaled = pygame.image.load(self.cassowary_running_4_path)
+        self.cassowary_running_5_unscaled = pygame.image.load(self.cassowary_running_5_path)
+        self.cassowary_running_6_unscaled = pygame.image.load(self.cassowary_running_6_path)
         self.heavy_forest_tile_1_unscaled = pygame.image.load(self.heavy_forest_tile_1_path)
         self.heavy_forest_tile_2_unscaled = pygame.image.load(self.heavy_forest_tile_2_path)
         self.heavy_forest_tile_3_unscaled = pygame.image.load(self.heavy_forest_tile_3_path)
